@@ -1,6 +1,5 @@
 <?php
 if(isset($_POST) ){
-
 	$this_form_spam = $_POST['firstname'];
 	/* if firstname field is not empty then prevent form submission. 
 	firstname field is likely to be completed by automated spambots.
@@ -36,11 +35,10 @@ if(isset($_POST) ){
 		if($formok){
 			$headers = "From: contact@ajax-abide.co.uk" . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-			
 			$emailbody =	"<p><strong>Name: </strong> {$name} </p>
-							<p><strong>Email: </strong> {$email} </p>
-							<hr>
-							<p>This message was sent from the IP Address: {$ipaddress} on {$date} at {$time}</p>";
+						<p><strong>Email: </strong> {$email} </p>
+						<hr>
+						<p>This message was sent from the IP Address: {$ipaddress} on {$date} at {$time}</p>";
 
 			mail("info@yourdomain.co.uk","AJAX Abide form response",$emailbody,$headers);
 		}

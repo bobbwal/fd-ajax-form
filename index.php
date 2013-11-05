@@ -1,5 +1,4 @@
 <?php session_start();
-//session_destroy(); 
 //init variables  
 $cf = array();  
 $sr = false;  
@@ -17,19 +16,15 @@ if(isset($_SESSION['cf_returndata'])){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Contact form : Foundation 4 | Abide | AJAX</title>
-
     <link rel="stylesheet" href="css/foundation.css">
-
     <script src="js/vendor/custom.modernizr.js"></script>
-
 </head>
+
 <body>
 <div class="row">
-
     <div class="large-5 large-centered columns">
 
         <form id="myform" data-abide="ajax" action="process.php" method="post">
-
             <fieldset>
                 <legend>Your Form</legend>
 
@@ -38,10 +33,9 @@ if(isset($_SESSION['cf_returndata'])){
                 //errors
                 if(isset($cf['errors']) && count($cf['errors']) > 0) :
                     echo '<div class="alert-box alert">';
-
                     foreach($cf['errors'] as $error) :
                         echo "<li>" . $error ."</li>";
-                    endforeach;
+                endforeach;
                     echo '</div>';
                 endif;
 
@@ -71,8 +65,8 @@ if(isset($_SESSION['cf_returndata'])){
             </fieldset>
         </form>
         <?php unset($_SESSION['cf_returndata']); ?>  
-    </div>
 
+    </div>
 </div>
 
 <script>
@@ -80,11 +74,9 @@ document.write('<script src=' +
     ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
     '.js><\/script>')
 </script>
-
 <script src="js/foundation.min.js"></script>
 <script src="js/foundation/foundation.abide.js"></script>
 <script>
-
     $('#myform')
         .on('invalid', function () {
             var invalid_fields = $(this).find('[data-invalid]');
@@ -106,9 +98,8 @@ document.write('<script src=' +
                      }
                 });
                 //return false; // required to block normal submit since you used ajax
-                /*not required with abide.
+                /* not required with abide. */
         }); 
-
 </script>
 <script>
     $(document).foundation();
